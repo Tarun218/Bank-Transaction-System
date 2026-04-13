@@ -9,6 +9,10 @@ const transactionRoutes = require("./routes/transaction.routes")
 app.use(express.json());
 app.use(cookieParser());   
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the banking API");
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/accounts", accountRouter);
 app.use("/api/transactions", transactionRoutes)
