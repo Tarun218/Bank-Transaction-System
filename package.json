@@ -1,15 +1,15 @@
 {
   "name": "bank_transaction_system",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend system for banking transactions using Node.js, Express, and MongoDB with JWT authentication and transaction handling.",
+  "main": "server.js",
   "scripts": {
     "dev": "npx nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tarun_Singodia",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.3",
