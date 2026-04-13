@@ -1,119 +1,118 @@
 # Bank Transaction System
 
-A backend ledger system built with Node.js, Express, and MongoDB for handling user authentication, account management, and idempotent fund transfers.
+A backend system designed to simulate real-world banking operations such as user authentication, account management, and secure fund transfers. The project focuses on building a clean, scalable API with practical security and transaction handling concepts.
 
-## Features
+Live API
+https://bank-transaction-system-7612.onrender.com
 
-- User registration and login with JWT authentication
-- Token blacklist support for logout
-- Account creation and balance retrieval
-- Transaction processing with debit/credit ledger entries
-- Idempotency support for transaction requests
-- Email notifications for registration and transactions
+---
 
-## Tech stack
+About the project
 
-- Node.js
-- Express
-- MongoDB with Mongoose
-- JWT authentication
-- Nodemailer for email
-- dotenv for configuration
+This project demonstrates how a banking backend works internally — from authentication to maintaining transaction consistency. It includes features like idempotent transactions, ledger tracking, and token-based security, which are commonly used in real financial systems.
 
-## Getting started
+---
 
-### Prerequisites
+Key features
 
-- Node.js 18+ installed
-- MongoDB Atlas or local MongoDB instance
-- Gmail account configured for email notifications
+* JWT-based user authentication
+* Secure login/logout with token blacklisting
+* Account creation and balance tracking
+* Fund transfer system with debit/credit ledger entries
+* Idempotency support to prevent duplicate transactions
+* Email notifications for important actions
 
-### Clone the repository
+---
 
-```bash
-git clone https://github.com/Tarun218/Bank-Transaction-System.git
-cd Bank-Transaction-System
-```
+Tech stack
 
-### Install dependencies
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JSON Web Tokens (JWT)
+* Nodemailer
 
-```bash
-npm install
-```
+---
 
-### Environment variables
+How to run locally
 
-Create a `.env` file in the project root. Use `.env.example` as a reference.
+1. Clone the repository
+   git clone https://github.com/Tarun218/Bank-Transaction-System.git
+   cd Bank-Transaction-System
 
-Required variables:
+2. Install dependencies
+   npm install
 
-```dotenv
+3. Create a .env file in the root directory
+   (use .env.example as reference)
+
+Required variables
+
 MONGO_URI=
 JWT_SECRET=
 EMAIL_USER=
 CLIENT_ID=
 CLIENT_SECRET=
 REFRESH_TOKEN=
-```
 
-### Run the app
-
-```bash
-npm run dev
-```
+4. Start the server
+   npm run dev
 
 or
 
-```bash
 npm start
-```
 
-The API will run on `http://localhost:3000` by default.
+The server will run on
+http://localhost:3000
 
-## API Endpoints
+---
 
-### Authentication
+Using the deployed API
 
-- `POST /api/auth/register`
-  - Body: `{ "name": "Your Name", "email": "email@example.com", "password": "password" }`
+Base URL
+https://bank-transaction-system-7612.onrender.com
 
-- `POST /api/auth/login`
-  - Body: `{ "email": "email@example.com", "password": "password" }`
+Example endpoints
 
-- `POST /api/auth/logout`
-  - Requires auth token in cookie or `Authorization: Bearer <token>` header
+POST /api/auth/register
+POST /api/auth/login
+POST /api/accounts
+POST /api/transactions
 
-### Accounts
+Use a tool like Postman to test endpoints. Include the JWT token in the Authorization header after login.
 
-- `POST /api/accounts`
-  - Create a new account for the authenticated user
+---
 
-- `GET /api/accounts`
-  - Fetch all accounts for the authenticated user
+How the system works
 
-- `GET /api/accounts/balance/:accountId`
-  - Get balance for a specific account
+* A user registers and logs in
+* A JWT token is generated for authentication
+* The user creates a bank account
+* Transactions are processed between accounts
+* A ledger records each transaction entry
+* Idempotency ensures duplicate requests don’t create multiple transactions
 
-### Transactions
+---
 
-- `POST /api/transactions`
-  - Create a transfer from one account to another
-  - Body: `{ "fromAccount": "<id>", "toAccount": "<id>", "amount": 100, "idempotencyKey": "unique-key" }`
+Security considerations
 
-- `POST /api/transactions/system/initial-funds`
-  - Create a system-initiated initial funds transfer
-  - Requires `authSystemUserMiddleware`
-  - Body: `{ "toAccount": "<id>", "amount": 100, "idempotencyKey": "unique-key" }`
+* Sensitive data is stored in environment variables
+* .env is excluded from version control
+* JWT is used for secure authentication
+* Token blacklist prevents reuse after logout
 
-## Notes
+---
 
-- Keep `.env` out of source control and never commit secrets.
-- Use the `.env.example` file to document required configuration values.
-- The project currently logs email transporter readiness at startup and sends real email notifications when configured.
+Future improvements
 
-## Recommended improvements
+* Add automated tests
+* Improve error handling and validation
+* Add API documentation (Postman/Swagger)
+* Build a frontend dashboard for visualization
 
-- Add automated tests for authentication and transaction flows
-- Add request validation middleware for cleaner request checks
-- Add API documentation or Postman collection
-- Add better error handling and transaction rollback logic
+---
+
+Author
+
+Tarun Singodia
+https://github.com/Tarun218
