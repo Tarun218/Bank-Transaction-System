@@ -5,7 +5,6 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import TransferPage from './pages/TransferPage'
-import DepositPage from './pages/DepositPage'
 import HistoryPage from './pages/HistoryPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import PublicRoute from './components/PublicRoute'
@@ -80,14 +79,6 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <TransferPage onToast={addToast} />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/deposit"
-                element={
-                  <ProtectedRoute>
-                    <DepositPage onToast={addToast} />
                   </ProtectedRoute>
                 }
               />

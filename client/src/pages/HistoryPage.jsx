@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { accountsAPI } from '../services/api'
+import { transactionsAPI } from '../services/api'
 import { formatCurrency, formatDate } from '../utils/helpers'
 import Layout from '../layouts/Layout'
 import Card from '../components/Card'
@@ -9,10 +9,23 @@ export default function HistoryPage({ onToast }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // In a real app, you would fetch transaction history from the backend
-    // For now, we'll show a placeholder
-    setLoading(false)
+    fetchHistory()
   }, [])
+
+  const fetchHistory = async () => {
+    try {
+      setLoading(true)
+      const response = await transactionsAPI.getHistory()
+      const txList = response.data.transactions || []
+      setTransactions(txList)
+    } catch (error) {
+      console.error('Failed to fetch transaction history:', error)
+      onToast('Failed to fetch transaction history', 'error')
+      setTransactions([])
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <Layout>
@@ -22,7 +35,7 @@ export default function HistoryPage({ onToast }) {
             Transaction History
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400 mt-1">
-            View all your transactions
+            View all your transactions (CREDIT and DEBIT)
           </p>
         </div>
 
@@ -33,7 +46,7 @@ export default function HistoryPage({ onToast }) {
         ) : transactions.length === 0 ? (
           <Card className="text-center py-12">
             <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-              No transactions yet. Start by making a transfer!
+              No transactions yet. Start by making a transfer or deposit!
             </p>
           </Card>
         ) : (
@@ -45,23 +58,29 @@ export default function HistoryPage({ onToast }) {
                     <th className="text-left py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">Date</th>
                     <th className="text-left py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">Type</th>
                     <th className="text-left py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">Amount</th>
-                    <th className="text-left py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">Account ID</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.map((tx, idx) => (
-                    <tr key={idx} className="border-b border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800">
-                      <td className="py-3 px-4 text-neutral-600 dark:text-neutral-400">{formatDate(tx.date)}</td>
-                      <td className="py-3 px-4 font-medium text-neutral-900 dark:text-neutral-50">{tx.type}</td>
-                      <td className="py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">{formatCurrency(tx.amount)}</td>
+                  {transactions.map((tx) => (
+                    <tr key={tx._id} className="border-b border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                      <td className="py-3 px-4 text-neutral-600 dark:text-neutral-400">
+                        {formatDate(tx.createdAt)}
+                      </td>
                       <td className="py-3 px-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          tx.status === 'COMPLETED'
-                            ? 'bg-accent-100 text-accent-800 dark:bg-accent-900 dark:text-accent-100'
-                            : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100'
+                          tx.type === 'CREDIT'
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                            : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
                         }`}>
-                          {tx.status}
+                          {tx.type}
                         </span>
+                      </td>
+                      <td className="py-3 px-4 font-semibold text-neutral-900 dark:text-neutral-50">
+                        {formatCurrency(tx.amount)}
+                      </td>
+                      <td className="py-3 px-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        {tx.account.substring(0, 12)}...
                       </td>
                     </tr>
                   ))}

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:3000/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -61,8 +61,8 @@ export const accountsAPI = {
 export const transactionsAPI = {
   transfer: (fromAccount, toAccount, amount, idempotencyKey) =>
     api.post('/transactions', { fromAccount, toAccount, amount, idempotencyKey }),
-  deposit: (toAccount, amount, idempotencyKey) =>
-    api.post('/transactions/deposit', { toAccount, amount, idempotencyKey }),
+  getHistory: () =>
+    api.get('/transactions/history'),
   addFunds: (toAccount, amount, idempotencyKey) =>
     api.post('/transactions/system/initial-funds', { toAccount, amount, idempotencyKey }),
 }
