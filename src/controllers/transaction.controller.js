@@ -326,8 +326,56 @@ async function depositFunds(req, res) {
     })
 }
 
+/**
+ * Get transaction history for logged-in user
+ * Returns all ledger entries for all user's accounts
+ */
+async function getHistory(req, res) {
+    try {
+        // Get all accounts of logged-in user
+        const accounts = await accountModel.find({
+            user: req.user._id
+        })
+
+        if (accounts.length === 0) {
+            return res.status(200).json({
+                transactions: []
+            })
+        }
+
+        // Extract account IDs
+        const accountIds = accounts.map(acc => acc._id)
+
+        // Get all ledger entries for these accounts, sorted by date
+        const transactions = await ledgerModel.find({
+            account: { $in: accountIds }
+        })
+            .populate('account', '_id user')
+            .populate('transaction', '_id status')
+            .sort({ createdAt: -1 })
+
+        return res.status(200).json({
+            transactions: transactions.map(entry => ({
+                _id: entry._id,
+                type: entry.type,
+                amount: entry.amount,
+                account: entry.account._id,
+                transactionId: entry.transaction._id,
+                createdAt: entry.createdAt
+            }))
+        })
+    } catch (error) {
+        console.error('Get history error:', error)
+        return res.status(500).json({
+            message: "Failed to fetch transaction history",
+            error: error.message
+        })
+    }
+}
+
 module.exports= {
     createTransaction,
     createInitialFundsTransaction,
-    depositFunds
+    depositFunds,
+    getHistory
 }

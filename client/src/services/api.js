@@ -61,8 +61,8 @@ export const accountsAPI = {
 export const transactionsAPI = {
   transfer: (fromAccount, toAccount, amount, idempotencyKey) =>
     api.post('/transactions', { fromAccount, toAccount, amount, idempotencyKey }),
-  deposit: (toAccount, amount, idempotencyKey) =>
-    api.post('/transactions/deposit', { toAccount, amount, idempotencyKey }),
+  getHistory: () =>
+    api.get('/transactions/history'),
   addFunds: (toAccount, amount, idempotencyKey) =>
     api.post('/transactions/system/initial-funds', { toAccount, amount, idempotencyKey }),
 }

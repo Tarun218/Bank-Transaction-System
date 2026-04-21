@@ -5,7 +5,6 @@ export default function Sidebar() {
   const navItems = [
     { label: 'Dashboard', path: '/dashboard', icon: '📊' },
     { label: 'Transfer', path: '/transfer', icon: '💸' },
-    { label: 'Deposit', path: '/deposit', icon: '💰' },
     { label: 'History', path: '/history', icon: '📜' },
   ]
 
