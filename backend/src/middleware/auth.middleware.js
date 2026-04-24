@@ -68,4 +68,3 @@ async function authSystemUserMiddleware(req,res,next){
 module.exports = {
     authMiddleware,authSystemUserMiddleware
 }
-

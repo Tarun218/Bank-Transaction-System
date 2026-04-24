@@ -1,0 +1,33 @@
+{
+  "name": "bank-transaction-system-backend",
+  "env": {
+    "MONGO_URI": {
+      "description": "MongoDB connection string",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "JWT secret key for authentication",
+      "required": true
+    },
+    "CLIENT_URL": {
+      "description": "Frontend URL (e.g., https://your-vercel-app.vercel.app)",
+      "required": true
+    },
+    "EMAIL_USER": {
+      "description": "Gmail address for sending emails",
+      "required": true
+    },
+    "CLIENT_ID": {
+      "description": "Google OAuth Client ID",
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "description": "Google OAuth Client Secret",
+      "required": true
+    },
+    "REFRESH_TOKEN": {
+      "description": "Google OAuth Refresh Token",
+      "required": true
+    }
+  }
+}
