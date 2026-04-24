@@ -1,9 +1,14 @@
 # Bank Transaction System
 
+ frontend/bank-system
 A full-stack banking transaction system built with React (frontend) and Node.js/Express (backend). Features user authentication, account management, and idempotent fund transfers with a ledger-based architecture.
+=======
+A backend system designed to simulate real-world banking operations such as user authentication, account management, and secure fund transfers. The project focuses on building a clean, scalable API with practical security and transaction handling concepts.
+ main
 
-## Features
+Live API
 
+frontend/bank-system
 - User registration and login with JWT authentication
 - Token blacklist support for logout
 - Account creation and balance retrieval
@@ -52,9 +57,19 @@ Bank_Transaction_System/
 ```
 
 ## Quick Start
+=======
+---
 
-### Prerequisites
+About the project
 
+This project demonstrates how a banking backend works internally — from authentication to maintaining transaction consistency. It includes features like idempotent transactions, ledger tracking, and token-based security, which are commonly used in real financial systems.
+
+---
+ main
+
+Key features
+
+ frontend/bank-system
 - Node.js 18+ installed
 - MongoDB Atlas account (free tier available)
 - Git installed
@@ -101,11 +116,68 @@ npm run start-frontend   # Terminal 2
 
 Frontend runs on `http://localhost:5173`
 Backend runs on `http://localhost:3000`
+=======
+* JWT-based user authentication
+* Secure login/logout with token blacklisting
+* Account creation and balance tracking
+* Fund transfer system with debit/credit ledger entries
+* Idempotency support to prevent duplicate transactions
+* Email notifications for important actions
 
-## API Endpoints
+---
 
-### Authentication
+Tech stack
 
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JSON Web Tokens (JWT)
+* Nodemailer
+
+---
+
+How to run locally
+
+1. Clone the repository
+   git clone https://github.com/Tarun218/Bank-Transaction-System.git
+   cd Bank-Transaction-System
+
+2. Install dependencies
+   npm install
+
+3. Create a .env file in the root directory
+   (use .env.example as reference)
+
+Required variables
+
+MONGO_URI=
+JWT_SECRET=
+EMAIL_USER=
+CLIENT_ID=
+CLIENT_SECRET=
+REFRESH_TOKEN=
+
+4. Start the server
+   npm run dev
+
+or
+
+npm start
+
+The server will run on
+http://localhost:3000
+
+---
+
+Using the deployed API
+ main
+
+Base URL
+https://bank-transaction-system-7612.onrender.com
+
+Example endpoints
+
+ frontend/bank-system
 - `POST /api/auth/register` - Register new user
   - Body: `{ "name": "Your Name", "email": "email@example.com", "password": "password" }`
 
@@ -114,9 +186,20 @@ Backend runs on `http://localhost:3000`
 
 - `POST /api/auth/logout` - Logout user
   - Requires auth token in cookie or `Authorization: Bearer <token>` header
+=======
+POST /api/auth/register
+POST /api/auth/login
+POST /api/accounts
+POST /api/transactions
 
-### Accounts
+Use a tool like Postman to test endpoints. Include the JWT token in the Authorization header after login.
 
+---
+ main
+
+How the system works
+
+ frontend/bank-system
 - `POST /api/accounts` - Create new account
   - Requires authentication
 
@@ -125,9 +208,25 @@ Backend runs on `http://localhost:3000`
 
 - `GET /api/accounts/balance/:accountId` - Get account balance
   - Requires authentication
+=======
+* A user registers and logs in
+* A JWT token is generated for authentication
+* The user creates a bank account
+* Transactions are processed between accounts
+* A ledger records each transaction entry
+* Idempotency ensures duplicate requests don’t create multiple transactions
 
-### Transactions
+---
 
+Security considerations
+ main
+
+* Sensitive data is stored in environment variables
+* .env is excluded from version control
+* JWT is used for secure authentication
+* Token blacklist prevents reuse after logout
+
+ frontend/bank-system
 - `POST /api/transactions` - Create transfer between accounts
   - Requires authentication
   - Body: `{ "fromAccount": "id", "toAccount": "id", "amount": 100, "idempotencyKey": "unique-key" }`
@@ -186,21 +285,20 @@ ISC
 
 Tarun Singodia
   - Body: `{ "fromAccount": "<id>", "toAccount": "<id>", "amount": 100, "idempotencyKey": "unique-key" }`
+=======
+---
+ main
 
-- `POST /api/transactions/system/initial-funds`
-  - Create a system-initiated initial funds transfer
-  - Requires `authSystemUserMiddleware`
-  - Body: `{ "toAccount": "<id>", "amount": 100, "idempotencyKey": "unique-key" }`
+Future improvements
 
-## Notes
+* Add automated tests
+* Improve error handling and validation
+* Add API documentation (Postman/Swagger)
+* Build a frontend dashboard for visualization
 
-- Keep `.env` out of source control and never commit secrets.
-- Use the `.env.example` file to document required configuration values.
-- The project currently logs email transporter readiness at startup and sends real email notifications when configured.
+---
 
-## Recommended improvements
+Author
 
-- Add automated tests for authentication and transaction flows
-- Add request validation middleware for cleaner request checks
-- Add API documentation or Postman collection
-- Add better error handling and transaction rollback logic
+Tarun Singodia
+https://github.com/Tarun218
