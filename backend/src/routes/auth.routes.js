@@ -16,7 +16,4 @@ router.post("/logout",authController.userLogoutController)
 
 
 
-
-
-
 module.exports = router
