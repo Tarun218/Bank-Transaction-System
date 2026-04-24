@@ -1,6 +1,4 @@
 # Bank Transaction System
-
- frontend/bank-system
 A full-stack banking transaction system built with React (frontend) and Node.js/Express (backend). Features user authentication, account management, and idempotent fund transfers with a ledger-based architecture.
 =======
 A backend system designed to simulate real-world banking operations such as user authentication, account management, and secure fund transfers. The project focuses on building a clean, scalable API with practical security and transaction handling concepts.
