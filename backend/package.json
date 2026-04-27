@@ -1,0 +1,39 @@
+{
+  "name": "bank-transaction-system-backend",
+  "version": "1.0.0",
+  "description": "Secure backend system for banking transactions using Node.js, Express, and MongoDB with JWT authentication.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "jwt",
+    "backend",
+    "banking-system",
+    "mern",
+    "api"
+  ],
+  "author": "Tarun Singodia",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1",
+    "nodemailer": "^8.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
