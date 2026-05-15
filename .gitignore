@@ -37,3 +37,16 @@ coverage/
 # Optional: temp files
 tmp/
 temp/
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Vercel
+.vercel/
+
+# IDE
+*.swp
+*.swo
+*~
+.DS_Store
