@@ -1,0 +1,60 @@
+services:
+  - type: web
+    name: bank-transaction-backend
+    runtime: node
+    region: oregon
+    plan: free
+    
+    # Repository
+    repo: https://github.com/Tarun218/Bank-Transaction-System
+    branch: main
+    rootDir: backend
+    
+    # Build configuration
+    buildCommand: npm install
+    startCommand: npm start
+    
+    # Environment variables (set these in Render dashboard)
+    envVars:
+      - key: MONGODB_URI
+        scope: build,runtime
+      - key: JWT_SECRET
+        scope: runtime
+      - key: JWT_EXPIRE
+        scope: runtime
+      - key: CLIENT_URL
+        scope: runtime
+      - key: SMTP_SERVICE
+        scope: runtime
+      - key: SMTP_EMAIL
+        scope: runtime
+      - key: SMTP_PASSWORD
+        scope: runtime
+      - key: PORT
+        value: "3000"
+        scope: runtime
+    
+    # Health check
+    healthCheckPath: /
+    
+    # Auto-deploy
+    autoDeploy: true
+    
+  - type: web
+    name: bank-transaction-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    
+    repo: https://github.com/Tarun218/Bank-Transaction-System
+    branch: main
+    rootDir: client
+    
+    buildCommand: npm run build
+    startCommand: npm run preview
+    
+    envVars:
+      - key: VITE_API_URL
+        scope: build
+    
+    autoDeploy: true

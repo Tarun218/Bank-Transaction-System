@@ -38,10 +38,6 @@ coverage/
 tmp/
 temp/
 
-# Firebase
-.firebase/
-.firebaserc
-
 # Vercel
 .vercel/
 

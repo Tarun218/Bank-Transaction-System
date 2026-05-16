@@ -1,14 +1,7 @@
 {
   "buildCommand": "cd client && npm run build",
   "outputDirectory": "client/dist",
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://bank-transaction-system.firebaseapp.com/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "env": {
+    "VITE_API_URL": "@vite_api_url"
+  }
 }

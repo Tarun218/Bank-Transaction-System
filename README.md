@@ -5,7 +5,7 @@ A full-stack banking application with secure JWT authentication, account managem
 ## 🚀 Live Deployment
 
 - **Frontend**: Deployed on Vercel
-- **Backend API**: Firebase Cloud Functions
+- **Backend API**: Deployed on Render
 - **Database**: MongoDB Atlas
 
 ## ✨ Key Features
@@ -32,7 +32,7 @@ A full-stack banking application with secure JWT authentication, account managem
 | | Axios | 1.6+ |
 | **Backend** | Node.js | 18+ |
 | | Express.js | 5.2+ |
-| | Firebase Functions | 5.0+ |
+| | Render | Cloud Deployment |
 | | MongoDB | 7+ |
 | | Mongoose | 9.4+ |
 | **Security** | JWT (jsonwebtoken) | 9.0+ |
@@ -123,48 +123,43 @@ npm run dev
 
 ## 🚀 Deployment
 
+### Deploy Backend to Render
+
+1. Visit [https://render.com](https://render.com)
+2. Sign up or login with GitHub
+3. Click **"New +"** → **"Web Service"**
+4. Select your GitHub repository: `Bank_Transaction_System`
+5. Configure:
+   - **Name**: `bank-transaction-backend`
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Root Directory**: `backend`
+6. Add Environment Variables:
+   - `MONGODB_URI` = your MongoDB connection string
+   - `JWT_SECRET` = your secret key
+   - `JWT_EXPIRE` = `7d`
+   - `CLIENT_URL` = your Vercel frontend URL
+   - `SMTP_SERVICE` = `gmail`
+   - `SMTP_EMAIL` = your email
+   - `SMTP_PASSWORD` = your app password
+7. Click **"Create Web Service"**
+8. Copy your Render URL (e.g., `https://bank-transaction-backend.onrender.com`)
+
 ### Deploy Frontend to Vercel
 
-1. **Install Vercel CLI:**
-
-```bash
-npm install -g vercel
-```
-
-2. **Build and deploy:**
-
-```bash
-cd client
-npm run build
-vercel deploy --prod
-```
-
-Or connect your GitHub repository to Vercel for automatic deployments on push.
-
-### Deploy Backend to Firebase
-
-1. **Install Firebase CLI:**
-
-```bash
-npm install -g firebase-tools
-```
-
-2. **Login and initialize Firebase:**
-
-```bash
-firebase login
-firebase init
-```
-
-3. **Deploy Cloud Functions and hosting:**
-
-```bash
-firebase deploy
-```
-
-This will deploy:
-- Backend API as Cloud Functions (Node.js 18)
-- Frontend static hosting with rewrites to Cloud Functions
+1. Visit [https://vercel.com](https://vercel.com)
+2. Sign up or login with GitHub
+3. Click **"Add New"** → **"Project"**
+4. Select your GitHub repository: `Bank_Transaction_System`
+5. Configure:
+   - **Framework**: `Vite`
+   - **Build Command**: `cd client && npm run build`
+   - **Output Directory**: `client/dist`
+6. Add Environment Variable:
+   - `VITE_API_URL` = `https://bank-transaction-backend.onrender.com/api`
+7. Click **"Deploy"**
+8. Your frontend will be live at the provided Vercel URL
 
 ## 📡 API Documentation
 
