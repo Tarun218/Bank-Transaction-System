@@ -8,19 +8,34 @@ const authRouter = require("./routes/auth.routes");
 const accountRouter = require("./routes/account.routes");
 const transactionRoutes = require("./routes/transaction.routes");
 
-// Production + Local Development CORS
-app.use(cors({
-  origin: true,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "https://bank-transaction-system-client.vercel.app",
+  "http://localhost:5174",
+  "http://localhost:5173"
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log("Blocked Origin:", origin);
+        callback(new Error("CORS not allowed"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-    res.send("Welcome to the banking API");
+  res.send("Welcome to the banking API");
 });
 
 app.use("/api/auth", authRouter);
