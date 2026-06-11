@@ -11,8 +11,9 @@ const transactionRoutes = require("./routes/transaction.routes");
 const allowedOrigins = [
   process.env.CLIENT_URL,
   "https://bank-transaction-system-client.vercel.app",
-  "http://localhost:5174",
-  "http://localhost:5173"
+  "https://bank-transaction-system-client-tarun218s-projects.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:5174"
 ].filter(Boolean);
 
 app.use(
