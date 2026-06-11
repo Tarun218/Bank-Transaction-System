@@ -25,6 +25,8 @@ A full-stack banking application with secure JWT authentication, account managem
 
 ### Login Page
 Login with your credentials to access the banking system.
+<img width="1900" height="911" alt="Screenshot 2026-06-11 144910" src="https://github.com/user-attachments/assets/8cda4d82-b297-46f2-adcc-bb4d2c63ae65" />
+
 
 ### Dashboard
 View all your accounts with current balances and account details. Manage multiple accounts in one place.
