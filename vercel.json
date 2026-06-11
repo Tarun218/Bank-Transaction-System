@@ -2,5 +2,5 @@
   "buildCommand": "cd client && npm run build",
   "outputDirectory": "client/dist",
   "env": {
-    "VITE_API_URL": "https://bank-transaction-system-1-nfdf.onrender.com"
+    "VITE_API_URL": "@vite_api_url"
 }
