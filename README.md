@@ -96,7 +96,7 @@ Create `backend/.env`:
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5174
 SMTP_SERVICE=gmail
 SMTP_EMAIL=your_email@gmail.com
 SMTP_PASSWORD=your_app_password
@@ -114,7 +114,7 @@ VITE_API_URL=http://localhost:3000/api
 # Terminal 1 - Backend (Express on port 3000)
 npm run start-backend
 
-# Terminal 2 - Frontend (React on port 5173)
+# Terminal 2 - Frontend (React on port 5174)
 npm run start-frontend
 
 # Or run both concurrently:

@@ -11,7 +11,7 @@ const transactionRoutes = require("./routes/transaction.routes")
 // CORS Configuration
 const allowedOrigins = [
   process.env.CLIENT_URL || 'https://bank-transaction-system-cb706.web.app',
-  'http://localhost:5173',
+  'http://localhost:5174',
   'http://localhost:3000'
 ];
 
