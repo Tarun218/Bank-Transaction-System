@@ -4,8 +4,8 @@ A full-stack banking application with secure JWT authentication, account managem
 
 ## 🚀 Live Deployment
 
-- **Frontend**: Deployed on Vercel
-- **Backend API**: Deployed on Render
+- **Frontend**: [https://bank-transaction-system-client-tarun218s-projects.vercel.app/login](https://bank-transaction-system-client-tarun218s-projects.vercel.app/login)
+- **Backend API**: [https://bank-transaction-system-1-nfdf.onrender.com](https://bank-transaction-system-1-nfdf.onrender.com)
 - **Database**: MongoDB Atlas
 
 ## ✨ Key Features
@@ -21,10 +21,24 @@ A full-stack banking application with secure JWT authentication, account managem
 - ⚡ **Fast Development** - Vite-powered React frontend with HMR
 - 🏗️ **Modular Architecture** - Service layer separation, clean code organization
 
+## 📸 Application Screenshots
+
+### Login Page
+Login with your credentials to access the banking system.
+
+### Dashboard
+View all your accounts with current balances and account details. Manage multiple accounts in one place.
+
+### Transfer Money
+Securely transfer funds between your accounts or to other users' accounts.
+
+### Transaction History
+Complete transaction ledger showing all your debit and credit transactions with detailed information.
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology | Version |
-|-------|-----------|---------|
+| --- | --- | --- |
 | **Frontend** | React | 18+ |
 | | Vite | 5+ |
 | | Tailwind CSS | 3+ |
@@ -44,28 +58,31 @@ A full-stack banking application with secure JWT authentication, account managem
 ```
 Bank_Transaction_System/
 ├── backend/                    # Node.js + Express API
-│   ├── functions/             # Firebase Cloud Functions
 │   ├── src/
-│   │   ├── controllers/       # Route controllers
-│   │   ├── models/            # MongoDB schemas
-│   │   ├── routes/            # API routes
-│   │   ├── services/          # Business logic
-│   │   ├── middleware/        # Auth & error handling
-│   │   └── config/            # Database config
+│   │   ├── controllers/        # Route controllers
+│   │   ├── models/             # MongoDB schemas
+│   │   ├── routes/             # API routes
+│   │   ├── services/           # Business logic
+│   │   ├── middleware/         # Auth & error handling
+│   │   └── config/             # Database config
+│   ├── server.js               # Express server
 │   └── package.json
 │
-├── client/                    # React + Vite frontend
+├── client/                     # React + Vite frontend
 │   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   ├── pages/            # Page components
-│   │   ├── context/          # React Context (Auth)
-│   │   ├── services/         # API service layer
-│   │   └── styles/           # Global CSS
+│   │   ├── components/         # Reusable UI components
+│   │   ├── pages/              # Page components
+│   │   ├── context/            # React Context (Auth)
+│   │   ├── services/           # API service layer
+│   │   ├── hooks/              # Custom React hooks
+│   │   ├── layouts/            # Layout components
+│   │   ├── utils/              # Utility functions
+│   │   └── styles/             # Global CSS
+│   ├── vite.config.js
 │   └── package.json
 │
-├── firebase.json             # Firebase configuration
-├── vercel.json              # Vercel frontend config
-└── package.json             # Root scripts
+├── vercel.json                 # Vercel frontend config
+└── package.json                # Root scripts & workspaces
 ```
 
 ## 🔧 Installation & Setup
@@ -75,7 +92,7 @@ Bank_Transaction_System/
 - Node.js 18+
 - npm or yarn
 - MongoDB Atlas account (free tier available)
-- Firebase project account
+- Render account (for backend deployment)
 - Vercel account (for frontend deployment)
 
 ### Local Development
@@ -83,7 +100,7 @@ Bank_Transaction_System/
 1. **Clone and install dependencies:**
 
 ```bash
-git clone https://github.com/yourusername/Bank_Transaction_System.git
+git clone https://github.com/Tarun218/Bank-Transaction-System.git
 cd Bank_Transaction_System
 npm run install-all
 ```
@@ -96,10 +113,11 @@ Create `backend/.env`:
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:5174
+CLIENT_URL=http://localhost:5173
 SMTP_SERVICE=gmail
 SMTP_EMAIL=your_email@gmail.com
 SMTP_PASSWORD=your_app_password
+NODE_ENV=development
 ```
 
 Create `client/.env`:
@@ -111,142 +129,130 @@ VITE_API_URL=http://localhost:3000/api
 3. **Start development servers:**
 
 ```bash
-# Terminal 1 - Backend (Express on port 3000)
-npm run start-backend
-
-# Terminal 2 - Frontend (React on port 5174)
-npm run start-frontend
-
-# Or run both concurrently:
+# Run both frontend and backend concurrently
 npm run dev
 ```
 
-## 🚀 Deployment
+The application will be available at:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3000
+
+## 🚀 Deployment Guide
 
 ### Deploy Backend to Render
 
 1. Visit [https://render.com](https://render.com)
 2. Sign up or login with GitHub
 3. Click **"New +"** → **"Web Service"**
-4. Select your GitHub repository: `Bank_Transaction_System`
-5. Configure:
-   - **Name**: `bank-transaction-backend`
-   - **Runtime**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Root Directory**: `backend`
-6. Add Environment Variables:
-   - `MONGODB_URI` = your MongoDB connection string
-   - `JWT_SECRET` = your secret key
-   - `JWT_EXPIRE` = `7d`
-   - `CLIENT_URL` = your Vercel frontend URL
-   - `SMTP_SERVICE` = `gmail`
-   - `SMTP_EMAIL` = your email
-   - `SMTP_PASSWORD` = your app password
-7. Click **"Create Web Service"**
-8. Copy your Render URL (e.g., `https://bank-transaction-backend.onrender.com`)
+4. Select your GitHub repository: `Bank-Transaction-System`
+5. Configure the service:
+   - **Build Command**: `cd backend && npm install`
+   - **Start Command**: `cd backend && npm start`
+   - **Environment**: Node
+6. Add environment variables (same as `backend/.env`)
+7. Click **"Create Web Service"** and wait for deployment
 
 ### Deploy Frontend to Vercel
 
 1. Visit [https://vercel.com](https://vercel.com)
 2. Sign up or login with GitHub
 3. Click **"Add New"** → **"Project"**
-4. Select your GitHub repository: `Bank_Transaction_System`
+4. Select your GitHub repository: `Bank-Transaction-System`
 5. Configure:
-   - **Framework**: `Vite`
+   - **Framework**: Vite
    - **Build Command**: `cd client && npm run build`
    - **Output Directory**: `client/dist`
-6. Add Environment Variable:
-   - `VITE_API_URL` = `https://bank-transaction-backend.onrender.com/api`
-7. Click **"Deploy"**
-8. Your frontend will be live at the provided Vercel URL
+   - **Install Command**: `cd client && npm install`
+6. Add Environment Variables:
+   - **Key**: `VITE_API_URL`
+   - **Value**: Your Render backend URL (e.g., `https://your-backend-xyz.onrender.com/api`)
+7. Click **"Deploy"** and wait for completion
 
-## 📡 API Documentation
+## 📚 API Documentation
 
 ### Authentication Endpoints
 
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout (blacklist token)
-- `POST /api/auth/refresh` - Refresh access token
+```
+POST /api/auth/register      - Register new user
+POST /api/auth/login         - Login user
+POST /api/auth/logout        - Logout (blacklist token)
+POST /api/auth/refresh       - Refresh access token
+```
 
-### Account Endpoints (Protected)
+### Account Endpoints
 
-- `GET /api/accounts` - Get all user accounts
-- `POST /api/accounts` - Create new account
-- `GET /api/accounts/:id` - Get account details
+```
+GET /api/accounts            - Get all user accounts
+POST /api/accounts           - Create new account
+GET /api/accounts/:id        - Get account details
+```
 
-### Transaction Endpoints (Protected)
+### Transaction Endpoints
 
-- `GET /api/transactions` - Get transaction history
-- `POST /api/transactions/deposit` - Deposit funds
-- `POST /api/transactions/withdraw` - Withdraw funds
-- `POST /api/transactions/transfer` - Transfer between accounts
+```
+POST /api/transactions/deposit    - Deposit money
+POST /api/transactions/withdraw   - Withdraw money
+POST /api/transactions/transfer   - Transfer between accounts
+GET /api/transactions/history     - Get transaction history
+```
 
-## 🔐 Security Features
+## 🔒 Security Features
 
-- JWT token-based authentication
-- Bcrypt password hashing
-- Token blacklist for logout
+- JWT-based authentication with access and refresh tokens
+- Token blacklist on logout preventing token reuse
+- bcryptjs password hashing
 - CORS protection
 - Input validation and sanitization
-- Secure HTTP-only cookies
-- MongoDB injection prevention
-- Idempotency keys for transactions
+- Secure HTTP headers
+- MongoDB injection prevention via Mongoose
 
-## 📝 Environment Variables
+## 🧪 Testing
 
-### Backend (.env)
-
-```
-MONGODB_URI         # MongoDB connection string
-JWT_SECRET         # Secret key for JWT signing
-JWT_EXPIRE         # Token expiration time (e.g., 7d)
-CLIENT_URL         # Frontend URL for CORS
-SMTP_SERVICE       # Email service provider
-SMTP_EMAIL         # Email account for notifications
-SMTP_PASSWORD      # Email app password
+```bash
+npm run test
 ```
 
-### Frontend (.env)
+## 📝 Git Workflow
 
+```bash
+# Create a new branch
+git checkout -b feature/your-feature-name
+
+# Make your changes and commit
+git add .
+git commit -m "feat: add your feature description"
+
+# Push to GitHub
+git push origin feature/your-feature-name
+
+# Create a Pull Request on GitHub
 ```
-VITE_API_URL       # Backend API URL
-```
 
-## 🐛 Troubleshooting
+## 🤝 Contributing
 
-### CORS errors
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Ensure `CLIENT_URL` in backend .env matches your frontend domain
-- Check CORS configuration in `backend/src/app.js`
-
-### MongoDB connection errors
-
-- Verify connection string in `MONGODB_URI`
-- Check MongoDB Atlas IP whitelist
-- Ensure database user credentials are correct
-
-### Firebase deployment issues
-
-- Ensure `.firebaserc` has correct project ID
-- Verify Firebase CLI is installed and authenticated
-- Check Node.js version compatibility (18+)
-
-### Email notifications not working
-
-- Verify SMTP credentials in `.env`
-- For Gmail, use an app password (not regular password)
-- Enable "Less secure app access" if using regular Gmail password
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-ISC License
+This project is licensed under the ISC License - see the LICENSE file for details.
 
-## 👨‍💻 Author
+## 👤 Author
 
-**Tarun Singodia** - Full-stack developer
+**Tarun Singodia**
 
----
+- Email: tarunmukeshsingodia@gmail.com
+- GitHub: [@Tarun218](https://github.com/Tarun218)
+- LinkedIn: [Tarun Singodia](https://www.linkedin.com/in/tarun-singodia/)
 
-**Note:** This project is designed for educational and demonstration purposes. For production use, implement additional security measures and compliance requirements.
+## 🙏 Acknowledgments
+
+- React and Vite teams for amazing tools
+- MongoDB for reliable database
+- Render and Vercel for seamless deployment
+- Tailwind CSS for utility-first styling
