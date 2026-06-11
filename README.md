@@ -30,12 +30,18 @@ Login with your credentials to access the banking system.
 
 ### Dashboard
 View all your accounts with current balances and account details. Manage multiple accounts in one place.
+<img width="1912" height="912" alt="Screenshot 2026-06-11 145002" src="https://github.com/user-attachments/assets/d684d7d7-37d3-4a82-a1c2-4a1460927360" />
+
 
 ### Transfer Money
 Securely transfer funds between your accounts or to other users' accounts.
+<img width="1902" height="912" alt="Screenshot 2026-06-11 145031" src="https://github.com/user-attachments/assets/e8d7eb3a-24bf-4d88-bc51-a66691d5f97e" />
+
 
 ### Transaction History
 Complete transaction ledger showing all your debit and credit transactions with detailed information.
+<img width="1907" height="905" alt="Screenshot 2026-06-11 145020" src="https://github.com/user-attachments/assets/230d240f-0a1e-4c39-9487-77d62d2d875e" />
+
 
 ## 🛠️ Tech Stack
 
