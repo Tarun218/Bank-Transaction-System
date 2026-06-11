@@ -1,10 +1,5 @@
 {
   "buildCommand": "cd client && npm run build",
   "outputDirectory": "client/dist",
-<<<<<<< HEAD
   "installCommand": "npm install && cd client && npm install"
-=======
-  "env": {
-    "VITE_API_URL": "@vite_api_url"
->>>>>>> f6ac2c95b510f0234f1dade7c54a1a7b23414bec
 }
