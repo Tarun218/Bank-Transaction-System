@@ -21,6 +21,10 @@ A full-stack banking application with secure JWT authentication, account managem
 - ⚡ **Fast Development** - Vite-powered React frontend with HMR
 - 🏗️ **Modular Architecture** - Service layer separation, clean code organization
 
+
+## Video Demonstration
+https://drive.google.com/file/d/1VR5XZT5mpTLzDMJNVP3B8lvk7hONib-c/view?usp=drive_link
+
 ## 📸 Application Screenshots
 
 ### Login Page
@@ -41,7 +45,6 @@ Securely transfer funds between your accounts or to other users' accounts.
 ### Transaction History
 Complete transaction ledger showing all your debit and credit transactions with detailed information.
 <img width="1907" height="905" alt="Screenshot 2026-06-11 145020" src="https://github.com/user-attachments/assets/230d240f-0a1e-4c39-9487-77d62d2d875e" />
-
 
 ## 🛠️ Tech Stack
 
