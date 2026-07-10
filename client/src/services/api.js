@@ -11,15 +11,19 @@ const api = axios.create({
 // Request interceptor
 api.interceptors.request.use(
   (config) => {
-    console.log(`[API] ${config.method.toUpperCase()} ${config.url}`)
-    return config
-  },
-  (error) => {
-    console.error('[API] Request error:', error)
-    return Promise.reject(error)
-  }
-)
+    const token = localStorage.getItem("token");
 
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    console.log(`[API] ${config.method.toUpperCase()} ${config.url}`);
+    console.log("Token:", token);
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 // Response interceptor
 api.interceptors.response.use(
   (response) => {
@@ -31,7 +35,7 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       localStorage.removeItem('user')
       localStorage.removeItem('token')
-      window.location.href = '/login'
+      
     }
     return Promise.reject(error)
   }
