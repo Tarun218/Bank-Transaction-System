@@ -1,25 +1,73 @@
+<div align="center">
+
 # 💳 Bank Transaction System
 
-A full-stack banking application with secure JWT authentication, account management, and real-time transaction processing. Built with React, Node.js, Express, and MongoDB.
+### A Full-Stack MERN Banking Application for Secure Digital Transactions
 
-## 🚀 Live Deployment
+Secure • JWT Authentication • Account Management • Transaction Processing • Responsive
 
-- **Frontend**: [https://bank-transaction-system-client-tarun218s-projects.vercel.app/login](https://bank-transaction-system-client-tarun218s-projects.vercel.app/login)
-- **Backend API**: [https://bank-transaction-system-1-nfdf.onrender.com](https://bank-transaction-system-1-nfdf.onrender.com)
-- **Database**: MongoDB Atlas
+<br>
 
-## ✨ Key Features
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-0A66C2?style=for-the-badge)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-- 🔐 **Secure JWT Authentication** - Token-based auth with refresh token support and logout blacklist
-- 🚪 **Token Blacklist** - Enhanced security preventing token reuse after logout
-- 💰 **Account Management** - Create and manage multiple accounts per user
-- 💸 **Financial Transactions** - Deposit, withdraw, and transfer funds between accounts
-- 📝 **Ledger System** - Detailed debit/credit transaction logging with timestamps
-- 🔄 **Idempotency Support** - Prevents duplicate transactions
-- 📧 **Email Notifications** - Automated emails for registration and transactions
-- 🎨 **Responsive UI** - Mobile-friendly interface with Tailwind CSS and dark mode support
-- ⚡ **Fast Development** - Vite-powered React frontend with HMR
-- 🏗️ **Modular Architecture** - Service layer separation, clean code organization
+<br><br>
+
+<a href="https://bank-transaction-system-client-tarun218s-projects.vercel.app/login">
+<img src="https://img.shields.io/badge/🚀_Live_Demo-Visit_Website-blue?style=for-the-badge">
+</a>
+
+<a href="https://bank-transaction-system-1-nfdf.onrender.com">
+<img src="https://img.shields.io/badge/⚙️_Backend_API-Render-success?style=for-the-badge">
+</a>
+
+<a href="https://github.com/Tarun218/Bank-Transaction-System">
+<img src="https://img.shields.io/badge/📂_Source_Code-GitHub-black?style=for-the-badge&logo=github">
+</a>
+
+</div>
+
+---
+
+# 📖 About The Project
+
+**Bank Transaction System** is a full-stack banking application developed using the **MERN Stack** that enables users to securely manage multiple bank accounts and perform financial transactions through a modern web interface.
+
+The application implements secure authentication using **JWT**, encrypted password storage with **bcrypt**, detailed transaction logging, account management, fund transfers, and email notifications. The project follows a modular architecture with a clean separation between frontend and backend services and demonstrates real-world backend concepts such as authentication, authorization, RESTful API development, middleware, service layers, and secure transaction processing.
+
+---
+
+# 🌐 Live Deployment
+
+### 🖥 Frontend
+
+https://bank-transaction-system-client-tarun218s-projects.vercel.app/login
+
+### ⚙ Backend API
+
+https://bank-transaction-system-1-nfdf.onrender.com
+
+### 📂 GitHub Repository
+
+https://github.com/Tarun218/Bank-Transaction-System
+
+---
+
+# 🎥 Video Demonstration
+<div align="center">
+https://drive.google.com/file/d/1VR5XZT5mpTLzDMJNVP3B8lvk7hONib-c/view
+</div>
+
+---
+
 
 ## 📸 Application Screenshots
 
@@ -42,7 +90,78 @@ Securely transfer funds between your accounts or to other users' accounts.
 Complete transaction ledger showing all your debit and credit transactions with detailed information.
 <img width="1907" height="905" alt="Screenshot 2026-06-11 145020" src="https://github.com/user-attachments/assets/230d240f-0a1e-4c39-9487-77d62d2d875e" />
 
+# ✨ Features
 
+## 🔐 Authentication
+
+- JWT Authentication
+- Access & Refresh Tokens
+- Secure Password Hashing using bcrypt
+- Token Blacklisting on Logout
+- Protected Routes
+- User Registration & Login
+
+---
+
+## 💳 Account Management
+
+- Create Multiple Bank Accounts
+- View Account Details
+- Account Balance Tracking
+- Manage Personal Accounts
+
+---
+
+## 💸 Transaction Management
+
+- Deposit Money
+- Withdraw Money
+- Transfer Funds Between Accounts
+- Complete Transaction History
+- Debit/Credit Ledger
+- Idempotent Transaction Processing
+
+---
+
+## 📧 Notifications
+
+- Email Notifications on Registration
+- Transaction Confirmation Emails
+
+---
+
+## 🔒 Security
+
+- JWT Authentication
+- Refresh Token Support
+- Token Blacklisting
+- Password Hashing using bcrypt
+- Secure Environment Variables
+- CORS Protection
+- Input Validation
+- MongoDB Injection Protection
+
+---
+
+## 🎨 User Experience
+
+- Responsive UI
+- Dark Mode Support
+- Mobile Friendly
+- Fast Navigation using React Router
+- Modern Dashboard
+
+---
+
+## ⚡ Backend
+
+- RESTful APIs
+- Modular Service Architecture
+- Express Middleware
+- MongoDB Relationships
+- Clean Controller-Service Structure
+
+---
 ## 🛠️ Tech Stack
 
 | Layer | Technology | Version |
@@ -250,13 +369,35 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the ISC License - see the LICENSE file for details.
 
-## 👤 Author
+---
 
-**Tarun Singodia**
+# 👨‍💻 Developer
 
-- Email: tarunmukeshsingodia@gmail.com
-- GitHub: [@Tarun218](https://github.com/Tarun218)
-- LinkedIn: [Tarun Singodia](https://www.linkedin.com/in/tarun-singodia/)
+## **Tarun Singodia**
+
+**B.Tech Computer Science Engineering (2026 Graduate)**
+
+📧 Email
+
+tarunmukeshsingodia@gmail.com
+
+💼 LinkedIn
+
+https://www.linkedin.com/in/tarun-singodia/
+
+💻 GitHub
+
+https://github.com/Tarun218
+
+---
+
+<div align="center">
+
+### ⭐ If you found this project helpful, consider giving it a Star on GitHub!
+
+**Happy Coding! 🚀**
+
+</div>
 
 ## 🙏 Acknowledgments
 
